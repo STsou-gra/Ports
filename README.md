@@ -1,5 +1,9 @@
 # Ports
 
+ポートフォリオサイトです。現状は雛形のみです。
+
+## 以下、使用ツール・使用方法など
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
