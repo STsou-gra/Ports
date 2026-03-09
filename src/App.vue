@@ -71,6 +71,22 @@ const activities: Activity[] = [
       </section>
     </main>
   </div>
+
+  <div class="project-list">
+    <h1>制作実績一覧</h1>
+
+    <div v-for="project in myProjects" :key="project.id" class="project-card">
+      <h2>{{ project.title }}</h2>
+
+      <p>
+        使用言語:
+        <span v-for="lang in project.languages" :key="lang"> [{{ lang }}] </span>
+      </p>
+
+      <p>{{ project.description }}</p>
+      <a :href="project.url" target="_blank">リンクを見る</a>
+    </div>
+  </div>
 </template>
 
 <style scoped>
@@ -260,5 +276,12 @@ const activities: Activity[] = [
   .title-en {
     font-size: 40px;
   }
+}
+
+.project-card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
 }
 </style>

@@ -23,13 +23,15 @@ a,
 
 @media (min-width: 1024px) {
   body {
-    display: flex;
-    place-items: center;
+    /* display: flex;  <-- これを消す */
+    display: block;
   }
 
   #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+    /* display: grid;  <-- これを消す */
+    display: block;
+    max-width: 100%; /* もし画面いっぱいに広げたいなら 100% */
+    margin: 0 auto;
+    padding: 0;
   }
 }
