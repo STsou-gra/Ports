@@ -59,8 +59,20 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  padding-top: 160px; /* タイトルとカードの隙間を調整 */
 }
 
+/* 調整し、App.vueの.section-title-enとは別 */
+.section-title-en {
+  top: 100px; /* 好きな高さに固定 */
+
+  font-size: 80px;
+  font-weight: 900;
+  color: rgba(68, 68, 102, 0.05);
+  position: absolute;
+  margin-top: -60px;
+  z-index: 0;
+}
 .main-root {
   background: white;
   padding: 50px;

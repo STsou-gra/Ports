@@ -17,7 +17,7 @@ const simpleProfile =
   <div class="home-view">
     <section class="hero-section">
       <div class="hero-content">
-        <h1 class="hero-logo">Ports<span>.</span></h1>
+        <h1 class="hero-logo"><span>.</span>Ports</h1>
         <p class="hero-catch">Creating games from the ground up.</p>
       </div>
     </section>

@@ -6,7 +6,7 @@ import { RouterLink, RouterView } from 'vue-router'
   <div class="app-shell">
     <header class="global-header">
       <div class="header-inner">
-        <div class="logo">Ports<span>.</span></div>
+        <div class="logo"><span>.</span>Ports</div>
         <nav class="nav-links">
           <RouterLink to="/" class="nav-btn">TOP</RouterLink>
           <RouterLink to="/about" class="nav-btn">ABOUT</RouterLink>
@@ -21,7 +21,7 @@ import { RouterLink, RouterView } from 'vue-router'
     </main>
     <footer class="global-footer">
       <div class="footer-inner">
-        <div class="footer-logo">Ports<span>.</span></div>
+        <div class="footer-logo"><span>.</span>Ports</div>
 
         <div class="social-links">
           <a
@@ -171,7 +171,7 @@ body {
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* ホバー時にブルアカ水色に光らせる */
+/* ホバー時に水色に光らせる */
 .social-btn:hover {
   background: #00aeef;
   border-color: #00aeef;
