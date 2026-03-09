@@ -1,14 +1,8 @@
-import './assets/main.css'
-
+// src/main.ts のイメージ
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-
 import App from './App.vue'
-import router from './router'
+import router from './router' // ←これが必要
 
 const app = createApp(App)
-
-app.use(createPinia())
-app.use(router)
-
+app.use(router) // ←これが必要
 app.mount('#app')
