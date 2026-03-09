@@ -11,6 +11,7 @@ import { RouterLink, RouterView } from 'vue-router'
           <RouterLink to="/" class="nav-btn">TOP</RouterLink>
           <RouterLink to="/about" class="nav-btn">ABOUT</RouterLink>
           <RouterLink to="/works" class="nav-btn">WORKS</RouterLink>
+          <RouterLink to="/news" class="nav-btn">NEWS</RouterLink>
         </nav>
       </div>
     </header>
@@ -18,6 +19,30 @@ import { RouterLink, RouterView } from 'vue-router'
     <main class="main-content">
       <RouterView />
     </main>
+    <footer class="global-footer">
+      <div class="footer-inner">
+        <div class="footer-logo">Ports<span>.</span></div>
+
+        <div class="social-links">
+          <a
+            href="https://twitter.com/あなたのユーザー名"
+            target="_blank"
+            class="social-btn x-link"
+          >
+            <span class="btn-text">X</span>
+          </a>
+          <a
+            href="https://github.com/あなたのユーザー名"
+            target="_blank"
+            class="social-btn github-link"
+          >
+            <span class="btn-text">GitHub</span>
+          </a>
+        </div>
+
+        <p class="copyright">&copy; 2026 Ports. All Rights Reserved.</p>
+      </div>
+    </footer>
   </div>
 </template>
 <style>
@@ -97,5 +122,67 @@ body {
   width: 100%;
   height: 2px;
   background: #00aeef;
+}
+/* --- フッターのデザイン --- */
+.global-footer {
+  background: #446; /* 濃い紺色で引き締める */
+  color: white;
+  padding: 60px 0 30px;
+  margin-top: 100px; /* 前のコンテンツとの間隔 */
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.footer-logo {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+.footer-logo span {
+  color: #00aeef;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+}
+
+.social-btn {
+  text-decoration: none;
+  color: white;
+  width: 120px;
+  height: 45px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 14px;
+  transition: all 0.3s;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ホバー時にブルアカ水色に光らせる */
+.social-btn:hover {
+  background: #00aeef;
+  border-color: #00aeef;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 174, 239, 0.4);
+}
+
+.copyright {
+  font-size: 12px;
+  opacity: 0.5;
+  margin-top: 20px;
+  letter-spacing: 0.1em;
 }
 </style>
