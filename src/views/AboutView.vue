@@ -1,3 +1,27 @@
+<script setup lang="ts">
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  // Intersection Observer で画面内に入った要素に .is-visible を付与
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+        }
+      })
+    },
+    { threshold: 0.1 },
+  )
+
+  // 監視対象を指定
+  const targetElements = document.querySelectorAll(
+    '.tree-trunk, .branch-line, .history-blue-card, .birth-card',
+  )
+  targetElements.forEach((el) => observer.observe(el))
+})
+</script>
+
 <template>
   <div class="about-detail-page">
     <section class="section tree-section">
@@ -59,20 +83,18 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  padding-top: 160px; /* タイトルとカードの隙間を調整 */
+  padding-top: 160px;
 }
 
-/* 調整し、App.vueの.section-title-enとは別 */
 .section-title-en {
-  top: 100px; /* 好きな高さに固定 */
-
+  top: 100px;
   font-size: 80px;
   font-weight: 900;
   color: rgba(68, 68, 102, 0.05);
   position: absolute;
-  margin-top: -60px;
   z-index: 0;
 }
+
 .main-root {
   background: white;
   padding: 50px;
@@ -91,22 +113,27 @@
   margin: 0 auto;
 }
 
+/* ★ 幹：上から下へ伸びるアニメーション */
 .tree-trunk {
   position: absolute;
   left: 50%;
   top: -20px;
-  bottom: 80px; /* 誕生カードの手前で線を止める */
+  bottom: 80px;
   width: 6px;
   background: #00aeef;
-  transform: translateX(-50%);
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: top;
+  transition: transform 1.2s ease-out;
   z-index: 1;
 }
+.tree-trunk.is-visible {
+  transform: translateX(-50%) scaleY(1);
+}
 
-/* 枝分かれアイテムのスタイル */
 .tree-item {
   position: relative;
   width: 50%;
-  padding: 40px 0;
+  padding: 30px 0; /* 線の高さに合わせて調整 */
   display: flex;
   align-items: center;
   z-index: 2;
@@ -120,13 +147,60 @@
   flex-direction: row;
 }
 
+/* ★ 曲線：幹に吸着するよう微調整 */
 .branch-line {
-  width: 40px;
-  height: 4px;
-  background: #00aeef;
+  width: 60px;
+  height: 60px; /* 縦の曲がり幅 */
+  background: transparent;
+  position: relative;
   flex-shrink: 0;
+  opacity: 0;
+  transition: all 0.8s ease-out;
+  transition-delay: 0.5s;
 }
 
+/* 幹からカードへの接続を滑らかに（右側） */
+.tree-item.right .branch-line {
+  border-bottom: 4px solid #00aeef;
+  border-left: 4px solid #00aeef;
+  border-bottom-left-radius: 25px;
+  margin-left: -3px; /* 幹の中心に合わせる */
+  margin-top: -30px; /* 曲線の位置上げ */
+  clip-path: none !important;
+}
+
+/* 幹からカードへの接続を滑らかに（左側） */
+.tree-item.left .branch-line {
+  border-bottom: 4px solid #00aeef;
+  border-right: 4px solid #00aeef;
+  border-bottom-right-radius: 25px;
+  margin-right: -3px;
+  margin-top: -30px;
+  clip-path: none !important;
+}
+
+/* 接続点のポッチ：ズレを防止するため疑似要素で作成 */
+.branch-line::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #00aeef;
+  border-radius: 50%;
+  top: -4px; /* 線の始点に合わせる */
+}
+.tree-item.right .branch-line::after {
+  left: -7.8px;
+}
+.tree-item.left .branch-line::after {
+  right: -7.8px;
+}
+
+.branch-line.is-visible {
+  opacity: 1;
+}
+
+/* カードのフェードイン */
 .history-blue-card {
   background: #00aeef;
   color: white;
@@ -134,47 +208,40 @@
   border-radius: 20px;
   width: 350px;
   box-shadow: 0 10px 25px rgba(0, 174, 239, 0.3);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+  transition-delay: 0.8s;
+}
+.history-blue-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* ★ 誕生カード専用のスタイル ★ */
 .birth-item {
   display: flex;
   justify-content: center;
-  padding-top: 60px; /* 最後の枝分かれからの距離 */
+  padding-top: 60px;
   position: relative;
   z-index: 2;
 }
 
 .birth-card {
   background: white;
-  border: 4px solid #00aeef; /* 枠線を青にして特別感を出す */
+  border: 4px solid #00aeef;
   color: #446;
   padding: 25px 50px;
-  border-radius: 50px; /* カプセル型のような丸み */
+  border-radius: 50px;
   text-align: center;
   box-shadow: 0 15px 30px rgba(0, 174, 239, 0.15);
+  opacity: 0;
+  transition: all 0.8s ease-out;
+  transition-delay: 1s;
+}
+.birth-card.is-visible {
+  opacity: 1;
 }
 
-.birth-icon {
-  font-size: 24px;
-  color: #00aeef;
-  margin-bottom: 5px;
-}
-
-.birth-card h4 {
-  margin: 0;
-  font-size: 22px;
-  font-weight: 900;
-  letter-spacing: 0.1em;
-}
-
-.birth-card p {
-  margin: 5px 0 0;
-  font-size: 14px;
-  opacity: 0.7;
-}
-
-/* スマホ対応 */
 @media (max-width: 768px) {
   .tree-trunk {
     left: 30px;
@@ -189,6 +256,17 @@
   }
   .branch-line {
     width: 20px;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 0 !important;
+    height: 4px;
+    margin-top: 0;
+    clip-path: none !important;
+    overflow: visible !important;
+  }
+  .branch-line::after {
+    left: -10px !important;
+    top: -4px !important;
   }
   .history-blue-card {
     width: calc(100% - 80px);

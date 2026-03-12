@@ -9,8 +9,6 @@ const displayNews = computed(() => {
   const start = (currentPage.value - 1) * itemsPerPage
   return allNews.slice(start, start + itemsPerPage)
 })
-
-const totalPages = computed(() => Math.ceil(allNews.length / itemsPerPage))
 </script>
 
 <template>
@@ -18,9 +16,13 @@ const totalPages = computed(() => Math.ceil(allNews.length / itemsPerPage))
     <section class="section">
       <div class="section-inner">
         <h2 class="section-title-en">NEWS LIST<span>.</span></h2>
-
         <div class="news-grid-3x10">
-          <div v-for="item in displayNews" :key="item.id" class="news-item-card">
+          <RouterLink
+            v-for="item in displayNews"
+            :key="item.id"
+            :to="'/news/' + item.id"
+            class="news-item-card"
+          >
             <div class="news-item-meta">
               <span class="news-id">#{{ String(item.id).padStart(3, '0') }}</span>
               <span class="news-tag">{{ item.tag }}</span>
@@ -28,13 +30,7 @@ const totalPages = computed(() => Math.ceil(allNews.length / itemsPerPage))
             <span class="news-date">{{ item.date }}</span>
             <h4>{{ item.title }}</h4>
             <p>{{ item.desc }}</p>
-          </div>
-        </div>
-
-        <div class="pagination" v-if="totalPages > 1">
-          <button @click="currentPage--" :disabled="currentPage === 1">PREV</button>
-          <span class="page-num">{{ currentPage }} / {{ totalPages }}</span>
-          <button @click="currentPage++" :disabled="currentPage === totalPages">NEXT</button>
+          </RouterLink>
         </div>
       </div>
     </section>
@@ -42,6 +38,11 @@ const totalPages = computed(() => Math.ceil(allNews.length / itemsPerPage))
 </template>
 
 <style scoped>
+.news-item-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
 .section-inner {
   max-width: 1300px;
   margin: 0 auto;

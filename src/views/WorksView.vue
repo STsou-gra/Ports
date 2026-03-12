@@ -7,16 +7,20 @@ import { allWorks } from '@/data/works'
     <section class="section">
       <div class="section-inner">
         <h2 class="section-title-en">WORKS ARCHIVE<span>.</span></h2>
-
         <div class="works-grid-full">
-          <div v-for="work in allWorks" :key="work.id" class="work-card-large">
+          <RouterLink
+            v-for="work in allWorks"
+            :key="work.id"
+            :to="'/works/' + work.id"
+            class="work-card-large"
+          >
             <div class="work-thumb-large">{{ work.thumb }}</div>
             <div class="work-info">
               <span class="work-tech-tag">{{ work.tech }}</span>
               <h3>{{ work.title }}</h3>
               <p>{{ work.desc }}</p>
             </div>
-          </div>
+          </RouterLink>
         </div>
       </div>
     </section>
@@ -24,6 +28,11 @@ import { allWorks } from '@/data/works'
 </template>
 
 <style scoped>
+.work-card-large {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
 .section-inner {
   max-width: 1200px;
   margin: 0 auto;

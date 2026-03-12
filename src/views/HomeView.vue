@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { allWorks } from '@/data/works' // 共通データをインポート
+import { allWorks } from '@/data/works' // 作品データをインポート
+import { allNews } from '@/data/news' // ニュースデータをインポート
 
 // 1. WORKS用：看板作品として最初の3〜6件を表示
 const homeWorks = allWorks.slice(0, 6)
 
 // 2. NEWS用：最新の活動履歴を抽出（日付順に並んでいる前提）
-const newsLog = allWorks.slice(0, 6)
+const newsLog = allNews.slice(0, 6)
 
 // ユーザー情報
 const myName = 'Your Name / ユーザー名'
@@ -39,17 +40,19 @@ const simpleProfile =
       <div class="section-inner">
         <h2 class="section-title-en">WORKS<span>.</span></h2>
         <div class="works-grid-home">
-          <div v-for="work in homeWorks" :key="work.id" class="work-card">
+          <RouterLink
+            v-for="work in homeWorks"
+            :key="work.id"
+            :to="'/works/' + work.id"
+            class="work-card"
+          >
             <div class="work-thumb">{{ work.thumb }}</div>
             <div class="work-info">
               <span class="work-tech">{{ work.tech }}</span>
               <h4>{{ work.title }}</h4>
               <p>{{ work.desc }}</p>
             </div>
-          </div>
-        </div>
-        <div class="center-btn-area">
-          <RouterLink to="/works" class="outline-btn">VIEW ARCHIVE</RouterLink>
+          </RouterLink>
         </div>
       </div>
     </section>
@@ -58,13 +61,18 @@ const simpleProfile =
       <div class="section-inner">
         <h2 class="section-title-en">NEWS<span>.</span></h2>
         <div class="news-log-grid">
-          <div v-for="news in newsLog" :key="news.id" class="news-log-item">
+          <RouterLink
+            v-for="news in newsLog"
+            :key="news.id"
+            :to="'/news/' + news.id"
+            class="news-log-item"
+          >
             <div class="news-meta">
               <span class="news-date">{{ news.date }}</span>
-              <span class="news-tag">UPDATE</span>
+              <span class="news-tag">{{ news.tag }}</span>
             </div>
-            <p class="news-content">{{ news.title }} を更新しました。</p>
-          </div>
+            <p class="news-content">{{ news.title }}</p>
+          </RouterLink>
         </div>
       </div>
     </section>
@@ -104,6 +112,13 @@ const simpleProfile =
 </template>
 
 <style scoped>
+/* RouterLinkにすると青色や下線がつく場合があるのでリセット */
+.work-card,
+.news-log-item {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
 /* レイアウト共通設定 */
 .section-inner {
   max-width: 1100px;

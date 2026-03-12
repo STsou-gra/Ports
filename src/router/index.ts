@@ -11,6 +11,16 @@ const router = createRouter({
     { path: '/about', component: AboutView },
     { path: '/works', component: WorksView },
     { path: '/news', component: NewsView },
+    {
+      path: '/works/:id', // :id の部分が数字に変わる
+      name: 'work-detail',
+      component: () => import('../views/DetailView.vue'),
+    },
+    {
+      path: '/news/:id',
+      name: 'news-detail',
+      component: () => import('../views/DetailView.vue'),
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     // 常に一番上 (x:0, y:0) にスクロールさせる

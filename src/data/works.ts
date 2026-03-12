@@ -6,6 +6,9 @@ export interface Project {
   desc: string
   date: string
   thumb: string
+  images?: string[] // 複数画像のURL
+  githubUrl?: string // ソースコードへのリンク
+  siteUrl?: string // 公開サイトや動画へのリンク
 }
 
 export const allWorks: Project[] = [
@@ -16,6 +19,9 @@ export const allWorks: Project[] = [
     desc: 'フルスクラッチでのエンジン開発',
     date: '2026.02.13',
     thumb: 'ENGINE',
+    images: ['engine_01.jpg', 'engine_02.jpg'], // ダミー画像名
+    githubUrl: 'https://github.com/yourname/engine',
+    siteUrl: 'https://youtube.com/watch?v=...',
   },
   {
     id: 2,
