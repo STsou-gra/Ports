@@ -118,7 +118,7 @@ onMounted(() => {
   position: absolute;
   left: 50%;
   top: -20px;
-  bottom: 80px;
+  bottom: 180px;
   width: 6px;
   background: #00aeef;
   transform: translateX(-50%) scaleY(0);
@@ -150,13 +150,21 @@ onMounted(() => {
 /* ★ 曲線：幹に吸着するよう微調整 */
 .branch-line {
   width: 60px;
-  height: 60px; /* 縦の曲がり幅 */
+  height: 4px; /* 縦の曲がり幅 */
   background: transparent;
   position: relative;
   flex-shrink: 0;
   opacity: 0;
-  transition: all 0.8s ease-out;
+  transform: scaleX(0); /* 最初は長さ0 */
+  opacity: 0;
+  transition:
+    transform 0.6s ease-out,
+    opacity 0.3s ease;
   transition-delay: 0.5s;
+}
+.branch-line.is-visible {
+  transform: scaleX(1);
+  opacity: 1;
 }
 
 /* 幹からカードへの接続を滑らかに（右側） */
@@ -188,12 +196,15 @@ onMounted(() => {
   background: #00aeef;
   border-radius: 50%;
   top: -4px; /* 線の始点に合わせる */
+  display: none; /* これで点が消えます */
 }
 .tree-item.right .branch-line::after {
-  left: -7.8px;
+  left: -3px;
+  transform-origin: left;
 }
 .tree-item.left .branch-line::after {
-  right: -7.8px;
+  right: -3x;
+  transform-origin: right;
 }
 
 .branch-line.is-visible {
@@ -221,6 +232,7 @@ onMounted(() => {
 .birth-item {
   display: flex;
   justify-content: center;
+  margin-top: -20px;
   padding-top: 60px;
   position: relative;
   z-index: 2;
