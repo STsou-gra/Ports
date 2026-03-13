@@ -6,6 +6,7 @@ export interface Project {
   desc: string
   date: string
   thumb: string
+  videoUrl?: string // YouTube埋め込みURL (https://www.youtube.com/embed/動画ID)
   images?: string[] // 複数画像のURL
   githubUrl?: string // ソースコードへのリンク
   siteUrl?: string // 公開サイトや動画へのリンク
@@ -20,6 +21,7 @@ export const allWorks: Project[] = [
     date: '2026.02.13',
     thumb: 'ENGINE',
     images: ['engine_01.jpg', 'engine_02.jpg'], // ダミー画像名
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // サンプルID
     githubUrl: 'https://github.com/yourname/engine',
     siteUrl: 'https://youtube.com/watch?v=...',
   },
