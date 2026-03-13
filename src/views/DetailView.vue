@@ -6,26 +6,13 @@ import { computed } from 'vue'
 
 const route = useRoute()
 
-// URLのIDから、表示すべきデータを特定する
+// 表示するデータを特定
 const item = computed(() => {
   const id = Number(route.params.id)
-  if (route.path.includes('works')) {
-    return allWorks.find((w) => w.id === id) as any // 一旦 any で回避するか、共通の型を作る
-  } else {
-    return allNews.find((n) => n.id === id) as any
-  }
+  return route.path.includes('works')
+    ? (allWorks.find((w) => w.id === id) as any)
+    : (allNews.find((n) => n.id === id) as any)
 })
-/*
-const item = computed(() => {
-  const id = Number(route.params.id)
-  // WORKSからの遷移か、NEWSからの遷移かを判定（URLのパスで分ける）
-  if (route.path.includes('works')) {
-    return allWorks.find((w) => w.id === id)
-  } else {
-    return allNews.find((n) => n.id === id)
-  }
-})
-*/
 </script>
 
 <template>
@@ -37,35 +24,36 @@ const item = computed(() => {
         <div class="detail-header">
           <span class="detail-category">{{ route.path.includes('works') ? 'WORKS' : 'NEWS' }}</span>
           <h1 class="detail-title">{{ item.title }}</h1>
-          <p class="detail-date">{{ 'date' in item ? item.date : '' }}</p>
+          <p class="detail-date">{{ item.date }}</p>
         </div>
 
         <div class="detail-visual">
-          <div class="visual-placeholder">IMAGE / MOVIE AREA</div>
+          <div v-if="item.videoUrl" class="video-container">
+            <iframe :src="item.videoUrl" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div v-else class="visual-placeholder">
+            <img v-if="item.thumb && item.thumb !== 'THUMB'" :src="item.thumb" alt="" />
+            <span v-else>NO IMAGE / VIDEO</span>
+          </div>
         </div>
 
         <div class="detail-body">
-          <p>{{ item.desc }}</p>
-          <div class="dummy-text">
-            ここには、C++での実装の苦労話や、ハッカソンでのチーム開発の様子など、
-            より詳しいテキストをたっぷり書くことができます。
-          </div>
+          <p class="main-desc">{{ item.desc }}</p>
+
           <div class="external-links" v-if="item.githubUrl || item.siteUrl">
-            <a v-if="item.githubUrl" :href="item.githubUrl" target="_blank" class="link-btn github">
-              View on GitHub
-            </a>
-            <a v-if="item.siteUrl" :href="item.siteUrl" target="_blank" class="link-btn site">
-              Open Project / Movie
-            </a>
+            <a v-if="item.githubUrl" :href="item.githubUrl" target="_blank" class="link-btn github"
+              >GitHub</a
+            >
+            <a v-if="item.siteUrl" :href="item.siteUrl" target="_blank" class="link-btn site"
+              >Project / Movie</a
+            >
           </div>
 
           <div class="image-gallery" v-if="item.images && item.images.length">
             <h3>Screenshots</h3>
             <div class="gallery-grid">
-              <div v-for="(img, index) in item.images" :key="index" class="gallery-item">
-                <div class="img-box">
-                  <img :src="img" :alt="item.title" class="gallery-img" />
-                </div>
+              <div v-for="(img, index) in item.images" :key="index" class="img-box">
+                <img :src="img" alt="" />
               </div>
             </div>
           </div>
@@ -79,6 +67,11 @@ const item = computed(() => {
 .detail-page {
   padding-top: 60px;
   min-height: 100vh;
+}
+.section-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 90%;
 }
 .back-btn {
   background: none;
@@ -101,45 +94,65 @@ const item = computed(() => {
   font-weight: 900;
 }
 .detail-title {
-  font-size: 42px;
+  font-size: clamp(28px, 5vw, 42px);
   font-weight: 900;
   margin: 20px 0 10px;
   color: #446;
+  line-height: 1.2;
+}
+.detail-date {
+  color: #889;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .detail-visual {
   width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #ddd;
-  border-radius: 20px;
   margin-bottom: 50px;
+  border-radius: 20px;
   overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  background: #eee;
+}
+.video-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .visual-placeholder {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16 / 9;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 900;
   color: #bbb;
 }
+.visual-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-.detail-body {
+.main-desc {
   font-size: 18px;
   line-height: 1.8;
+  white-space: pre-wrap;
+  margin-bottom: 40px;
   color: #446;
-  max-width: 800px;
 }
-.dummy-text {
-  margin-top: 30px;
-  opacity: 0.6;
-}
-/* --- 外部リンクボタン --- */
+
 .external-links {
   display: flex;
   gap: 15px;
-  margin: 40px 0;
+  margin-bottom: 60px;
 }
 .link-btn {
   padding: 12px 25px;
@@ -159,38 +172,31 @@ const item = computed(() => {
 }
 .link-btn:hover {
   transform: translateY(-3px);
-  opacity: 0.9;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* --- 画像ギャラリー --- */
-.image-gallery {
-  margin-top: 60px;
-}
 .image-gallery h3 {
   font-size: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   border-left: 5px solid #00aeef;
   padding-left: 15px;
+  font-weight: 900;
 }
-
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
 .img-box {
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: #eee;
+  background: #ddd;
   border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  color: #99a;
+  overflow: hidden;
 }
-.main-desc {
-  white-space: pre-wrap; /* これで改行がそのまま反映されます */
-  margin-bottom: 30px;
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 </style>

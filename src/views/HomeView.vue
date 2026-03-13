@@ -368,6 +368,45 @@ const simpleProfile =
 .mini-banner:hover .banner-hover-effect {
   left: 150%;
 }
+.hero-section {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: -65px;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+
+  /* ★ 背景画像の設定 ★ */
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
+    /* 画像を少し暗くして文字を読みやすく */ url('@/assets/hero-bg.jpg'); /* assets内のファイル名と合わせる */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* パララックス効果 */
+}
+
+.hero-logo {
+  font-size: clamp(48px, 12vw, 80px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  margin: 0;
+  color: white;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero-logo span {
+  color: #00aeef;
+}
+
+.hero-catch {
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-align: center;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  margin-top: 10px;
+}
 
 /* モバイル対応：スマホでは2列か3列にする */
 @media (max-width: 1000px) {
