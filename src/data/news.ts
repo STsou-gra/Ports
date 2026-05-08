@@ -6,10 +6,26 @@ export interface NewsItem {
   tag: string
 }
 
-export const allNews: NewsItem[] = Array.from({ length: 35 }, (_, i) => ({
-  id: i + 1,
-  date: '2026.03.09',
-  title: `活動ログ #${i + 1}`,
-  desc: 'ハッカソンの進捗や、エンジンのバグ修正などの細かい記録です。',
-  tag: i % 2 === 0 ? 'UPDATE' : 'EVENT',
-}))
+export const allNews: NewsItem[] = [
+  {
+    id: 1,
+    date: '2026.05.08',
+    title: `開発ログ`,
+    desc: 'ポートフォリオサイトの開発。',
+    tag: 'UPDATE',
+  },
+  {
+    id: 2,
+    date: '2026.05.09',
+    title: `イベント`,
+    desc: 'ハッカソンなど。',
+    tag: 'EVENT',
+  },
+]
+
+//最新順にソートした配列をエクスポート
+export const sortedNews = [...allNews].sort((a, b) => {
+  const dateA = new Date(a.date.replace(/\./g, '-')).getTime()
+  const dateB = new Date(b.date.replace(/\./g, '-')).getTime()
+  return dateB - dateA
+})

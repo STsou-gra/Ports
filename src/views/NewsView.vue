@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { allNews } from '@/data/news'
+import { sortedNews } from '@/data/news'
 
 const itemsPerPage = 30
 const currentPage = ref(1)
 
 const displayNews = computed(() => {
   const start = (currentPage.value - 1) * itemsPerPage
-  return allNews.slice(start, start + itemsPerPage)
+  return sortedNews.slice(start, start + itemsPerPage)
 })
 </script>
 

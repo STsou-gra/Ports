@@ -18,7 +18,7 @@ export const allWorks: Project[] = [
     title: 'Original Game Engine',
     tech: 'C++ / DirectX',
     desc: 'フルスクラッチでのエンジン開発',
-    date: '2026.02.13',
+    date: '2026-02-13',
     thumb: 'ENGINE',
     images: ['engine_01.jpg', 'engine_02.jpg'], // ダミー画像名
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // サンプルID
@@ -30,7 +30,7 @@ export const allWorks: Project[] = [
     title: '3D Character Model',
     tech: 'Blender',
     desc: 'オリジナルキャラのモデリング',
-    date: '2026.02.05',
+    date: '2026-02-05',
     thumb: '3D',
   },
   {
@@ -38,7 +38,7 @@ export const allWorks: Project[] = [
     title: 'Portfolio Site',
     tech: 'Vue.js / TS',
     desc: 'このサイトの制作',
-    date: '2026.03.09',
+    date: '2026-03-09',
     thumb: 'WEB',
   },
   {
@@ -46,7 +46,7 @@ export const allWorks: Project[] = [
     title: '2D Action Game',
     tech: 'Unity',
     desc: '物理演算を駆使したアクション',
-    date: '2025.12.20',
+    date: '2025-12-20',
     thumb: 'GAME',
   },
   {
@@ -54,7 +54,7 @@ export const allWorks: Project[] = [
     title: 'Task Manager',
     tech: 'Next.js',
     desc: 'ハッカソンで制作したWebツール',
-    date: '2026.02.17',
+    date: '2026-02-17',
     thumb: 'TOOL',
   },
   {
@@ -62,8 +62,13 @@ export const allWorks: Project[] = [
     title: 'Shader Test',
     tech: 'HLSL',
     desc: '描画エンジンのためのシェーダー開発',
-    date: '2026.01.30',
+    date: '2026-01-30',
     thumb: 'SHADER',
   },
   // 7個目以降もここに追加していくだけで、WorksViewのアーカイブに反映されます
 ]
+
+//最新順並び替え処理
+export const sortedWorks = [...allWorks].sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+)

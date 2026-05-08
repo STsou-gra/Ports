@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { allWorks } from '@/data/works' // 作品データをインポート
-import { allNews } from '@/data/news' // ニュースデータをインポート
+import { sortedWorks } from '@/data/works' // 作品データをインポート
+import { sortedNews } from '@/data/news' // ニュースデータをインポート
 
 // 1. WORKS用：看板作品として最初の3〜6件を表示
-const homeWorks = allWorks.slice(0, 6)
+const homeWorks = sortedWorks.slice(0, 6)
 
 // 2. NEWS用：最新の活動履歴を抽出（日付順に並んでいる前提）
-const newsLog = allNews.slice(0, 6)
+const newsLog = sortedNews.slice(0, 6)
 
 // ユーザー情報
 const myName = 'Your Name / ユーザー名'

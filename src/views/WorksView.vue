@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { allWorks } from '@/data/works'
+import { sortedWorks } from '@/data/works'
 </script>
 
 <template>
@@ -9,7 +9,7 @@ import { allWorks } from '@/data/works'
         <h2 class="section-title-en">WORKS ARCHIVE<span>.</span></h2>
         <div class="works-grid-full">
           <RouterLink
-            v-for="work in allWorks"
+            v-for="work in sortedWorks"
             :key="work.id"
             :to="'/works/' + work.id"
             class="work-card-large"
