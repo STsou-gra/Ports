@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-import { allWorks } from '@/data/works'
-import { allNews } from '@/data/news'
+import { sortedWorks } from '@/data/works'
+import { sortedNews } from '@/data/news'
 import { computed } from 'vue'
 
 const route = useRoute()
@@ -9,9 +9,11 @@ const route = useRoute()
 // 表示するデータを特定
 const item = computed(() => {
   const id = Number(route.params.id)
-  return route.path.includes('works')
-    ? (allWorks.find((w) => w.id === id) as any)
-    : (allNews.find((n) => n.id === id) as any)
+  const isWork = route.path.includes('works')
+
+  const found = isWork ? sortedWorks.find((w) => w.id === id) : sortedNews.find((n) => n.id === id)
+
+  return (found as any) || null
 })
 </script>
 
@@ -58,6 +60,17 @@ const item = computed(() => {
             </div>
           </div>
         </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- データが見つからなかった時の表示 -->
+  <div v-else class="detail-page not-found">
+    <section class="section">
+      <div class="section-inner">
+        <h1>NOT FOUND.</h1>
+        <p>データが見つかりませんでした。</p>
+        <button @click="$router.push('/')" class="back-btn">TOPへ戻る</button>
       </div>
     </section>
   </div>
