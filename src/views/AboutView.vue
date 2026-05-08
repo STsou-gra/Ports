@@ -28,6 +28,7 @@ onMounted(() => {
       <h2 class="section-title-en">DETAILED ABOUT<span>.</span></h2>
 
       <div class="detail-card main-root">
+        <h2>名前</h2>
         <h3>自己紹介（詳細）</h3>
         <p>
           大学2年生。ゲームプログラマーを目指してC++でのエンジン開発やUnity、Blenderを学習中。
