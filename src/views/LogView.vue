@@ -1,33 +1,33 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { sortedNews } from '@/data/news'
+import { sortedLog } from '@/data/log'
 
 const itemsPerPage = 30
 const currentPage = ref(1)
 
-const displayNews = computed(() => {
+const displayLog = computed(() => {
   const start = (currentPage.value - 1) * itemsPerPage
-  return sortedNews.slice(start, start + itemsPerPage)
+  return sortedLog.slice(start, start + itemsPerPage)
 })
 </script>
 
 <template>
-  <div class="news-archive-page">
+  <div class="log-archive-page">
     <section class="section">
       <div class="section-inner">
-        <h2 class="section-title-en">NEWS LIST<span>.</span></h2>
-        <div class="news-grid-3x10">
+        <h2 class="section-title-en">LOG LIST<span>.</span></h2>
+        <div class="log-grid-3x10">
           <RouterLink
-            v-for="item in displayNews"
+            v-for="item in displayLog"
             :key="item.id"
-            :to="'/news/' + item.id"
-            class="news-item-card"
+            :to="'/log/' + item.id"
+            class="log-item-card"
           >
-            <div class="news-item-meta">
-              <span class="news-id">#{{ String(item.id).padStart(3, '0') }}</span>
-              <span class="news-tag">{{ item.tag }}</span>
+            <div class="log-item-meta">
+              <span class="log-id">#{{ String(item.id).padStart(3, '0') }}</span>
+              <span class="log-tag">{{ item.tag }}</span>
             </div>
-            <span class="news-date">{{ item.date }}</span>
+            <span class="log-date">{{ item.date }}</span>
             <h4>{{ item.title }}</h4>
             <p>{{ item.desc }}</p>
           </RouterLink>
@@ -38,7 +38,7 @@ const displayNews = computed(() => {
 </template>
 
 <style scoped>
-.news-item-card {
+.log-item-card {
   text-decoration: none;
   color: inherit;
   display: block;
@@ -48,52 +48,52 @@ const displayNews = computed(() => {
   margin: 0 auto;
   width: 95%;
 }
-.news-grid-3x10 {
+.log-grid-3x10 {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 横3列 */
   grid-template-rows: repeat(10, auto); /* 縦10行 */
   gap: 20px;
   margin-top: 60px;
 }
-.news-item-card {
+.log-item-card {
   background: white;
   padding: 20px;
   border-radius: 8px;
   border-bottom: 4px solid #eee;
   transition: 0.2s;
 }
-.news-item-card:hover {
+.log-item-card:hover {
   border-bottom-color: #00aeef;
   transform: translateY(-3px);
 }
 
-.news-item-meta {
+.log-item-meta {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
 }
-.news-id {
+.log-id {
   color: #00aeef;
   font-weight: 900;
   font-size: 12px;
 }
-.news-tag {
+.log-tag {
   font-size: 10px;
   background: #446;
   color: white;
   padding: 2px 6px;
   border-radius: 3px;
 }
-.news-date {
+.log-date {
   font-size: 12px;
   color: #889;
   font-weight: 700;
 }
-.news-item-card h4 {
+.log-item-card h4 {
   margin: 8px 0;
   font-size: 16px;
 }
-.news-item-card p {
+.log-item-card p {
   font-size: 13px;
   opacity: 0.6;
   display: -webkit-box;
@@ -122,12 +122,12 @@ const displayNews = computed(() => {
 }
 
 @media (max-width: 1000px) {
-  .news-grid-3x10 {
+  .log-grid-3x10 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (max-width: 600px) {
-  .news-grid-3x10 {
+  .log-grid-3x10 {
     grid-template-columns: 1fr;
   }
 }

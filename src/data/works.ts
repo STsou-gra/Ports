@@ -1,11 +1,12 @@
 // src/data/works.ts
 export interface Project {
-  id: number
-  title: string
-  tech: string
-  desc: string
-  date: string
-  thumb: string
+  id: number // ID
+  title: string // 作品記事タイトル
+  tech: string // 使用技術
+  desc: string // 第二見出し（pタグ）
+  article: string //記事内容(Markdown形式)
+  date: string // 書かれた日付
+  thumb: string // 作品の種類
   videoUrl?: string // YouTube埋め込みURL (https://www.youtube.com/embed/動画ID)
   images?: string[] // 複数画像のURL
   githubUrl?: string // ソースコードへのリンク
@@ -15,17 +16,34 @@ export interface Project {
 export const allWorks: Project[] = [
   {
     id: 1,
-    title: 'Original Game Engine',
-    tech: 'C++ / DirectX',
-    desc: 'フルスクラッチでのエンジン開発',
-    date: '2026-02-13',
-    thumb: 'ENGINE',
+    title: 'ポートフォリオサイトへようこそ',
+    tech: 'Vue.js / TypeScript',
+    desc: 'パンパカパーン！ポートフォリオが作成されました！',
+    date: '2026-05-11',
+    thumb: 'Web',
+    article: '',
+  },
+]
+
+//最新順並び替え処理
+export const sortedWorks = [...allWorks].sort((a, b) => {
+  return new Date(b.date).getTime() - new Date(a.date).getTime()
+})
+
+//作成例
+/*{
+    id: 1,
+    title: 'ポートフォリオサイトへようこそ',
+    tech: 'Vue.js / TypeScript',
+    desc: 'パンパカパーン！ポートフォリオが作成されました！',
+    date: '2026-05-11',
+    thumb: 'Web',
     images: ['engine_01.jpg', 'engine_02.jpg'], // ダミー画像名
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // サンプルID
     githubUrl: 'https://github.com/yourname/engine',
     siteUrl: 'https://youtube.com/watch?v=...',
   },
-  {
+    {
     id: 2,
     title: '3D Character Model',
     tech: 'Blender',
@@ -65,10 +83,4 @@ export const allWorks: Project[] = [
     date: '2026-01-30',
     thumb: 'SHADER',
   },
-  // 7個目以降もここに追加していくだけで、WorksViewのアーカイブに反映されます
-]
-
-//最新順並び替え処理
-export const sortedWorks = [...allWorks].sort(
-  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-)
+  */

@@ -1,20 +1,52 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-import { sortedWorks } from '@/data/works'
-import { sortedNews } from '@/data/news'
-import { computed } from 'vue'
+import { sortedWorks, type Project } from '@/data/works'
+import { sortedLog, type LogItem } from '@/data/log'
+import { computed, onMounted, nextTick } from 'vue'
+
+// MarkdownとPrismのインポート
+import MarkdownIt from 'markdown-it'
+import Prism from 'prismjs'
+
+// --- 言語とテーマの読み込み ---
+import 'prismjs/themes/prism-tomorrow.css' //暗めのテーマ
+/*
+import 'prismjs/components/prism-clike'
+import 'prismjs/components/prism-c'
+import 'prismjs/components/prism-cpp'
+import 'prismjs/components/prism-csharp'
+import 'prismjs/components/prism-python'
+import 'prismjs/components/prism-bash'
+*/
 
 const route = useRoute()
 
+// MarkdownIt
+const md = new MarkdownIt({
+  html: true,
+  linkify: true,
+  typographer: true,
+})
+
 // 表示するデータを特定
-const item = computed(() => {
+const item = computed<(Project & LogItem) | null>(() => {
   const id = Number(route.params.id)
   const isWork = route.path.includes('works')
-
-  const found = isWork ? sortedWorks.find((w) => w.id === id) : sortedNews.find((n) => n.id === id)
-
+  const found = isWork ? sortedWorks.find((w) => w.id === id) : sortedLog.find((n) => n.id === id)
   return (found as any) || null
 })
+
+// MarkdownをHTMLに変換
+const renderedContent = computed(() => {
+  return item.value ? md.render(item.value.desc) : ''
+})
+
+const highlightCode = async () => {
+  await nextTick() //HTMLが描画されるのを待つ
+  Prism.highlightAll()
+}
+
+onMounted(highlightCode)
 </script>
 
 <template>
@@ -24,7 +56,7 @@ const item = computed(() => {
         <button @click="$router.back()" class="back-btn">← BACK</button>
 
         <div class="detail-header">
-          <span class="detail-category">{{ route.path.includes('works') ? 'WORKS' : 'NEWS' }}</span>
+          <span class="detail-category">{{ route.path.includes('works') ? 'WORKS' : 'LOG' }}</span>
           <h1 class="detail-title">{{ item.title }}</h1>
           <p class="detail-date">{{ item.date }}</p>
         </div>
@@ -40,7 +72,7 @@ const item = computed(() => {
         </div>
 
         <div class="detail-body">
-          <p class="main-desc">{{ item.desc }}</p>
+          <div class="main-desc markdown-body" v-html="renderedContent"></div>
 
           <div class="external-links" v-if="item.githubUrl || item.siteUrl">
             <a v-if="item.githubUrl" :href="item.githubUrl" target="_blank" class="link-btn github"
@@ -75,6 +107,41 @@ const item = computed(() => {
     </section>
   </div>
 </template>
+
+<style>
+.markdown-body {
+  color: #446;
+  line-height: 1.8;
+}
+
+/* コードブロックの外枠 */
+.markdown-body pre {
+  margin: 1.5em 0;
+  padding: 1em;
+  border-radius: 12px;
+  background: #2d2d2d !important; /* 明示的に暗くする */
+  overflow-x: auto;
+}
+
+/* インラインコード */
+.markdown-body :not(pre) > code {
+  background: #eee;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+/* 見出しの調整 */
+.markdown-body h3 {
+  margin: 1.5em 0 0.5em;
+  padding-bottom: 0.3em;
+  border-bottom: 2px solid #00aeef;
+}
+
+.markdown-body ul {
+  padding-left: 1.5em;
+}
+</style>
 
 <style scoped>
 .detail-page {

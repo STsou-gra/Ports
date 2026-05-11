@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import WorksView from '../views/WorksView.vue'
-import NewsView from '../views/NewsView.vue'
+import LogView from '../views/LogView.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -10,15 +10,15 @@ const router = createRouter({
     { path: '/', component: HomeView },
     { path: '/about', component: AboutView },
     { path: '/works', component: WorksView },
-    { path: '/news', component: NewsView },
+    { path: '/log', component: LogView },
     {
       path: '/works/:id', // :id の部分が数字に変わる
       name: 'work-detail',
       component: () => import('../views/DetailView.vue'),
     },
     {
-      path: '/news/:id',
-      name: 'news-detail',
+      path: '/log/:id',
+      name: 'log-detail',
       component: () => import('../views/DetailView.vue'),
     },
   ],

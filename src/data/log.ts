@@ -1,4 +1,4 @@
-export interface NewsItem {
+export interface LogItem {
   id: number
   date: string
   title: string
@@ -6,7 +6,7 @@ export interface NewsItem {
   tag: string
 }
 
-export const allNews: NewsItem[] = [
+export const allLog: LogItem[] = [
   {
     id: 1,
     date: '2026.05.09',
@@ -24,7 +24,7 @@ export const allNews: NewsItem[] = [
 ]
 
 //最新順にソートした配列をエクスポート
-export const sortedNews = [...allNews].sort((a, b) => {
+export const sortedLog = [...allLog].sort((a, b) => {
   const dateA = new Date(a.date.replace(/\./g, '-')).getTime()
   const dateB = new Date(b.date.replace(/\./g, '-')).getTime()
   return dateB - dateA

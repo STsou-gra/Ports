@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { sortedWorks } from '@/data/works' // 作品データをインポート
-import { sortedNews } from '@/data/news' // ニュースデータをインポート
+import { sortedLog } from '@/data/log' // ニュースデータをインポート
 
 // 1. WORKS用：看板作品として最初の3〜6件を表示
 const homeWorks = sortedWorks.slice(0, 6)
 
-// 2. NEWS用：最新の活動履歴を抽出（日付順に並んでいる前提）
-const newsLog = sortedNews.slice(0, 6)
+// 2. LOG用：最新の活動履歴を抽出（日付順に並んでいる前提）
+const logLog = sortedLog.slice(0, 6)
 
 // ユーザー情報
 const myName = 'Sohei Saito / 疾走感の人'
@@ -59,19 +59,19 @@ const simpleProfile =
 
     <section class="section">
       <div class="section-inner">
-        <h2 class="section-title-en">NEWS<span>.</span></h2>
-        <div class="news-log-grid">
+        <h2 class="section-title-en">LOG<span>.</span></h2>
+        <div class="log-log-grid">
           <RouterLink
-            v-for="news in newsLog"
-            :key="news.id"
-            :to="'/news/' + news.id"
-            class="news-log-item"
+            v-for="log in logLog"
+            :key="log.id"
+            :to="'/log/' + log.id"
+            class="log-log-item"
           >
-            <div class="news-meta">
-              <span class="news-date">{{ news.date }}</span>
-              <span class="news-tag">{{ news.tag }}</span>
+            <div class="log-meta">
+              <span class="log-date">{{ log.date }}</span>
+              <span class="log-tag">{{ log.tag }}</span>
             </div>
-            <p class="news-content">{{ news.title }}</p>
+            <p class="log-content">{{ log.title }}</p>
           </RouterLink>
         </div>
       </div>
@@ -114,7 +114,7 @@ const simpleProfile =
 <style scoped>
 /* RouterLinkにすると青色や下線がつく場合があるのでリセット */
 .work-card,
-.news-log-item {
+.log-log-item {
   text-decoration: none;
   color: inherit;
   display: block;
@@ -225,15 +225,15 @@ const simpleProfile =
   color: white;
 }
 
-/* --- NEWS (2列リスト形式) --- */
-.news-log-grid {
+/* --- LOG (2列リスト形式) --- */
+.log-log-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
   position: relative;
   z-index: 1;
 }
-.news-log-item {
+.log-log-item {
   background: rgba(255, 255, 255, 0.7);
   padding: 15px 25px;
   border-radius: 8px;
@@ -242,18 +242,18 @@ const simpleProfile =
   gap: 5px;
   border: 1px solid rgba(0, 174, 239, 0.1);
 }
-.news-meta {
+.log-meta {
   display: flex;
   gap: 15px;
   align-items: center;
 }
-.news-date {
+.log-date {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
   color: #889;
   font-size: 14px;
 }
-.news-tag {
+.log-tag {
   background: #00aeef;
   color: white;
   font-size: 10px;
@@ -261,7 +261,7 @@ const simpleProfile =
   border-radius: 3px;
   font-weight: 900;
 }
-.news-content {
+.log-content {
   margin: 0;
   font-weight: 700;
   color: #446;
@@ -297,7 +297,7 @@ const simpleProfile =
 /* レスポンシブ */
 @media (max-width: 900px) {
   .works-grid-home,
-  .news-log-grid {
+  .log-log-grid {
     grid-template-columns: 1fr;
   }
 }
