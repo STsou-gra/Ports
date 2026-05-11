@@ -28,11 +28,11 @@ onMounted(() => {
       <h2 class="section-title-en">DETAILED ABOUT<span>.</span></h2>
 
       <div class="detail-card main-root">
-        <h2>名前</h2>
-        <h3>自己紹介（詳細）</h3>
+        <h2>斉藤 壮平</h2>
+        <h3>自己紹介</h3>
         <p>
-          大学2年生。ゲームプログラマーを目指してC++でのエンジン開発やUnity、Blenderを学習中。
-          ハッカソン等でのチーム開発も経験しています。
+          近畿大学情報学部情報学科実世界コンピューティングコース3回生。<br />
+          ゲームクリエイター志望。これまで複数のハッカソンに出場し、受賞歴あり。
         </p>
       </div>
 
@@ -42,27 +42,27 @@ onMounted(() => {
         <div class="tree-item right">
           <div class="branch-line"></div>
           <div class="history-blue-card">
-            <span class="year">2026.02</span>
-            <h4>2週間ハッカソン</h4>
-            <p>Next.jsとSupabaseを用いたWeb制作を完走。</p>
+            <span class="year">2025.11</span>
+            <h4>CAPCOM GAMES COMPETITIONに近畿大学チームで出場</h4>
+            <p></p>
           </div>
         </div>
 
         <div class="tree-item left">
           <div class="branch-line"></div>
           <div class="history-blue-card">
-            <span class="year">2026.01</span>
-            <h4>自作エンジン着手</h4>
-            <p>C++とDirectX12を用いた描画エンジンの構築。</p>
+            <span class="year">2025.07</span>
+            <h4>技育博入賞</h4>
+            <p></p>
           </div>
         </div>
 
         <div class="tree-item right">
           <div class="branch-line"></div>
           <div class="history-blue-card">
-            <span class="year">2024.04</span>
-            <h4>大学入学</h4>
-            <p>情報工学を専攻し、エンジニアとしての道を選択。</p>
+            <span class="year">2023.12</span>
+            <h4>NHK総合「18祭」出演</h4>
+            <p></p>
           </div>
         </div>
 

@@ -11,7 +11,7 @@ const newsLog = sortedNews.slice(0, 6)
 // ユーザー情報
 const myName = 'Your Name / ユーザー名'
 const simpleProfile =
-  'ゲームプログラマー志望の大学2年生。技術の根幹を支える開発に情熱を注いでいます。'
+  'ゲームクリエイター志望の近畿大学情報学部情報学科実世界コンピューティングコース3回生。'
 </script>
 
 <template>

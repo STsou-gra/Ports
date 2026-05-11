@@ -24,18 +24,10 @@ import { RouterLink, RouterView } from 'vue-router'
         <div class="footer-logo"><span>.</span>Ports</div>
 
         <div class="social-links">
-          <a
-            href="https://twitter.com/あなたのユーザー名"
-            target="_blank"
-            class="social-btn x-link"
-          >
+          <a href="https://twitter.com/Nx8eJTVynaQ0LFz" target="_blank" class="social-btn x-link">
             <span class="btn-text">X</span>
           </a>
-          <a
-            href="https://github.com/あなたのユーザー名"
-            target="_blank"
-            class="social-btn github-link"
-          >
+          <a href="https://github.com/STsou-gra" target="_blank" class="social-btn github-link">
             <span class="btn-text">GitHub</span>
           </a>
         </div>

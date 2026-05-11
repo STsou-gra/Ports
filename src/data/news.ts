@@ -9,7 +9,7 @@ export interface NewsItem {
 export const allNews: NewsItem[] = [
   {
     id: 1,
-    date: '2026.05.08',
+    date: '2026.05.09',
     title: `開発ログ`,
     desc: 'ポートフォリオサイトの開発。',
     tag: 'UPDATE',
