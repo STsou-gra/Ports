@@ -9,7 +9,7 @@ const homeWorks = sortedWorks.slice(0, 6)
 const newsLog = sortedNews.slice(0, 6)
 
 // ユーザー情報
-const myName = 'Your Name / ユーザー名'
+const myName = 'Sohei Saito / 疾走感の人'
 const simpleProfile =
   'ゲームクリエイター志望の近畿大学情報学部情報学科実世界コンピューティングコース3回生。'
 </script>
