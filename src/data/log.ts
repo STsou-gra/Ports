@@ -2,7 +2,8 @@ export interface LogItem {
   id: number
   date: string
   title: string
-  desc: string
+  desc: string //第2見出し
+  article: string
   tag: string
 }
 
@@ -12,6 +13,18 @@ export const allLog: LogItem[] = [
     date: '2026.05.09',
     title: `開発ログ`,
     desc: 'ポートフォリオサイトの開発。',
+    article: `
+### 実装したこと
+- Markdown表示機能
+- Prism.jsによるシンタックスハイライト
+
+C#のコードテスト：
+\`\`\`csharp
+public void Update(){
+    Debug.Log("Hello Portfolio!");
+}
+\`\`\`
+`,
     tag: 'UPDATE',
   },
   {
@@ -19,6 +32,7 @@ export const allLog: LogItem[] = [
     date: '2026.05.09',
     title: `イベント`,
     desc: 'ハッカソンなど。',
+    article: '',
     tag: 'EVENT',
   },
 ]

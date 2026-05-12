@@ -1,23 +1,30 @@
+//記事詳細を表示する（WORKS・LOG共通）
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
 import { sortedWorks, type Project } from '@/data/works'
 import { sortedLog, type LogItem } from '@/data/log'
-import { computed, onMounted, nextTick } from 'vue'
+import { computed, onMounted, nextTick, watch } from 'vue'
 
 // MarkdownとPrismのインポート
 import MarkdownIt from 'markdown-it'
 import Prism from 'prismjs'
 
 // --- 言語とテーマの読み込み ---
-import 'prismjs/themes/prism-tomorrow.css' //暗めのテーマ
-/*
+//暗めのテーマにしたい場合
+//import 'prismjs/themes/prism-tomorrow.css'
+//明るいテーマ
+import 'prismjs/themes/prism-okaidia.css'
+
 import 'prismjs/components/prism-clike'
 import 'prismjs/components/prism-c'
 import 'prismjs/components/prism-cpp'
 import 'prismjs/components/prism-csharp'
+import 'prismjs/components/prism-glsl'
 import 'prismjs/components/prism-python'
 import 'prismjs/components/prism-bash'
-*/
+import 'prismjs/components/prism-markup' // HTML/XML用
+import 'prismjs/components/prism-javascript'
+import 'prismjs/components/prism-typescript'
 
 const route = useRoute()
 
@@ -36,17 +43,29 @@ const item = computed<(Project & LogItem) | null>(() => {
   return (found as any) || null
 })
 
-// MarkdownをHTMLに変換
+// MarkdownをHTMLに変換・記事を載せる
 const renderedContent = computed(() => {
-  return item.value ? md.render(item.value.desc) : ''
+  return item.value ? md.render(item.value.article) : ''
 })
 
 const highlightCode = async () => {
   await nextTick() //HTMLが描画されるのを待つ
-  Prism.highlightAll()
+  const codeBlocks = document.querySelectorAll('pre code')
+  console.log('Found code blocks:', codeBlocks.length) // ここが0ならHTML出力側が原因
+  //記事の中身があるときだけハイライトを実行する
+  if (item.value && item.value.article) {
+    Prism.highlightAll()
+  }
 }
 
+//ページを開いたとき
 onMounted(highlightCode)
+
+//IDが変わって別の記事に切り替わった時も再実行する
+watch(() => route.params.id, highlightCode)
+
+//コンテンツが動的に生成された後も再実行する
+watch(renderedContent, highlightCode)
 </script>
 
 <template>
@@ -115,7 +134,7 @@ onMounted(highlightCode)
 }
 
 /* コードブロックの外枠 */
-.markdown-body pre {
+.markdown-body pre[class*='language-'] {
   margin: 1.5em 0;
   padding: 1em;
   border-radius: 12px;

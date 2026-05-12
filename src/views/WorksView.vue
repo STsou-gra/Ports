@@ -17,6 +17,7 @@ import { sortedWorks } from '@/data/works'
             <div class="work-thumb-large">{{ work.thumb }}</div>
             <div class="work-info">
               <span class="work-tech-tag">{{ work.tech }}</span>
+              <p>{{ work.date }}</p>
               <h3>{{ work.title }}</h3>
               <p>{{ work.desc }}</p>
             </div>
@@ -76,12 +77,13 @@ import { sortedWorks } from '@/data/works'
   font-weight: 900;
 }
 .work-info h3 {
-  margin: 15px 0;
+  margin: 5px 0;
   font-size: 24px;
 }
 .work-info p {
+  margin: 5px 0;
   opacity: 0.7;
-  line-height: 1.8;
+  line-height: 1.5;
 }
 
 @media (max-width: 800px) {

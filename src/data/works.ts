@@ -18,10 +18,30 @@ export const allWorks: Project[] = [
     id: 1,
     title: 'ポートフォリオサイトへようこそ',
     tech: 'Vue.js / TypeScript',
-    desc: 'パンパカパーン！ポートフォリオが作成されました！',
+    desc: 'パンパカパーン！ポートフォリオサイトが作成されました！',
+    article: `
+ポートフォリオサイトへようこそ！ここでは個人開発物や参加したハッカソンなどで作成した物を載せていきます。
+### テスト
+- Markdown表示機能
+- Prism.jsによるシンタックスハイライト
+
+C#のコードテスト：
+\`\`\`csharp
+public void Update(){
+    Debug.Log("Hello Portfolio!");
+}
+\`\`\`
+
+\`\`\`csharp
+// これはコメントです（緑やグレーになるはず）
+public void TestMethod() {
+    string message = "こんにちは"; // 文字列は別の色になるはず
+    int value = 123; // 数値も色が変わるはず
+}
+\`\`\`
+`,
     date: '2026-05-11',
     thumb: 'Web',
-    article: '',
   },
 ]
 
