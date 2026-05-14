@@ -32,7 +32,7 @@ import { RouterLink, RouterView } from 'vue-router'
           </a>
         </div>
 
-        <p class="copyright">&copy; 2026 Ports. All Rights Reserved.</p>
+        <p class="copyright">&copy; 2026 .Ports All Rights Reserved.</p>
       </div>
     </footer>
   </div>
