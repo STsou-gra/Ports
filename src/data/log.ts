@@ -24,6 +24,8 @@ public void Update(){
     Debug.Log("Hello Portfolio!");
 }
 \`\`\`
+
+現在はこれまでの開発物・実績の掲載中です。
 `,
     tag: 'UPDATE',
   },
@@ -32,7 +34,7 @@ public void Update(){
     date: '2026.05.09',
     title: `イベント`,
     desc: 'ハッカソンなど。',
-    article: '',
+    article: '今後追加予定',
     tag: 'EVENT',
   },
 ]

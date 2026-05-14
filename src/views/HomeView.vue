@@ -81,28 +81,17 @@ const simpleProfile =
         <h2 class="section-title-en">LINKS<span>.</span></h2>
 
         <div class="mini-banner-grid">
-          <a href="https://example.com/1" target="_blank" class="mini-banner">
-            <div class="banner-img-placeholder">ORGANIZATION</div>
+          <a href="https://kithub.jp/" target="_blank" class="mini-banner">
+            <div class="banner-img-placeholder">ORGANIZATION:KITHUB</div>
             <div class="banner-hover-effect"></div>
           </a>
 
-          <a href="https://github.com/" target="_blank" class="mini-banner">
-            <div class="banner-img-placeholder">GITHUB</div>
-            <div class="banner-hover-effect"></div>
-          </a>
-
-          <a href="https://twitter.com/" target="_blank" class="mini-banner">
+          <a href="https://twitter.com/Nx8eJTVynaQ0LFz" target="_blank" class="mini-banner">
             <div class="banner-img-placeholder">X / TWITTER</div>
             <div class="banner-hover-effect"></div>
           </a>
-
-          <a href="https://note.com/" target="_blank" class="mini-banner">
-            <div class="banner-img-placeholder">BLOG</div>
-            <div class="banner-hover-effect"></div>
-          </a>
-
-          <a href="https://example.com/5" target="_blank" class="mini-banner">
-            <div class="banner-img-placeholder">SPECIAL</div>
+          <a href="https://github.com/STsou-gra" target="_blank" class="mini-banner">
+            <div class="banner-img-placeholder">GITHUB</div>
             <div class="banner-hover-effect"></div>
           </a>
         </div>
