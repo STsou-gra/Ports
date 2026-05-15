@@ -85,7 +85,7 @@ watch(renderedContent, highlightCode)
             <iframe :src="item.videoUrl" frameborder="0" allowfullscreen></iframe>
           </div>
           <div v-else class="visual-placeholder">
-            <img v-if="item.thumb && item.thumb !== 'THUMB'" :src="item.thumb" alt="" />
+            <img v-if="item.images && item.images.length > 0" :src="item.images[0]" alt="" />
             <span v-else>NO IMAGE / VIDEO</span>
           </div>
         </div>

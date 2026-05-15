@@ -44,6 +44,19 @@ public void TestMethod() {
     date: '2026-05-11',
     thumb: 'Web',
   },
+  {
+    id: 2,
+    title: 'Gricon',
+    tech: 'Blender/Logic Pro',
+    desc: 'コントローラー内ゲームにてモデリング・作曲役として参加',
+    article: `### 公式サイトはこちら
+[![GriconBanner](/image/GriconIcon.webp)](https://flossy-band-678.notion.site/GriCon-Arduino-Unity-16a9ff2ca96c8032b9a5cc3768512383)
+
+`,
+    date: '2024-12-28',
+    thumb: 'Game Controller',
+    images: ['/image/Gricon.jpeg'],
+  },
 ]
 
 //最新順並び替え処理

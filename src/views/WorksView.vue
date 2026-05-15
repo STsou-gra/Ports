@@ -14,7 +14,17 @@ import { sortedWorks } from '@/data/works'
             :to="'/works/' + work.id"
             class="work-card-large"
           >
-            <div class="work-thumb-large">{{ work.thumb }}</div>
+            <div class="work-thumb-large">
+              <!-- images配列が存在し、1枚目がある場合はそれを表示 -->
+              <img
+                v-if="work.images && work.images.length > 0"
+                :src="work.images[0]"
+                alt=""
+                class="thumb-img"
+              />
+              <!-- 画像がない場合は、カテゴリ名（thumb）をテキスト表示 -->
+              <span v-else>{{ work.thumb }}</span>
+            </div>
             <div class="work-info">
               <span class="work-tech-tag">{{ work.tech }}</span>
               <p>{{ work.date }}</p>
@@ -64,7 +74,17 @@ import { sortedWorks } from '@/data/works'
   font-weight: 900;
   font-size: 24px;
   color: white;
+  position: relative;
+  overflow: hidden;
 }
+
+/* 画像のスタイリング */
+.thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .work-info {
   padding: 30px;
 }
