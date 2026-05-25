@@ -55,8 +55,9 @@ import { sortedWorks } from '@/data/works'
   gap: 40px;
   margin-top: 60px;
 }
+/* 作品記事カード */
 .work-card-large {
-  background: white;
+  background: rgb(255, 255, 255);
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
@@ -65,6 +66,7 @@ import { sortedWorks } from '@/data/works'
 .work-card-large:hover {
   transform: translateY(-10px);
 }
+/* 作品記事カードのサムネイル */
 .work-thumb-large {
   height: 300px;
   background: #cbd5e1;
@@ -88,8 +90,9 @@ import { sortedWorks } from '@/data/works'
 .work-info {
   padding: 30px;
 }
+/* 技術タグ */
 .work-tech-tag {
-  background: #00aeef;
+  background: #6bcb9b;
   color: white;
   padding: 4px 12px;
   border-radius: 4px;
@@ -99,11 +102,13 @@ import { sortedWorks } from '@/data/works'
 .work-info h3 {
   margin: 5px 0;
   font-size: 24px;
+  color: #000000;
 }
 .work-info p {
   margin: 5px 0;
   opacity: 0.7;
   line-height: 1.5;
+  color: #000000;
 }
 
 @media (max-width: 800px) {

@@ -45,8 +45,8 @@ import { RouterLink, RouterView } from 'vue-router'
 body {
   margin: 0;
   font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
-  color: #446;
-  background: #f0f4f8;
+  color: #f0f4f8;
+  background: #272727;
 }
 
 /* 3. 各ページで使い回す「セクション」のデザイン */
@@ -58,13 +58,13 @@ body {
 .section-title-en {
   font-size: 80px;
   font-weight: 900;
-  color: rgba(68, 68, 102, 0.05);
+  color: rgba(220, 220, 220, 0.48);
   position: absolute;
   margin-top: -60px;
   z-index: 0;
 }
 .section-title-en span {
-  color: #00aeef;
+  color: #6bcb9b;
   opacity: 0.5;
 }
 
@@ -85,13 +85,15 @@ body {
   align-items: center;
   padding: 15px 20px;
 }
+
+/* ロゴのデザイン*/
 .logo {
   font-size: 24px;
   font-weight: 900;
-  color: #446;
+  color: #b6b6b6;
 }
 .logo span {
-  color: #00aeef;
+  color: #6bcb9b;
 }
 .nav-links {
   display: flex;
@@ -104,7 +106,7 @@ body {
   position: relative;
 }
 .router-link-active {
-  color: #00aeef !important;
+  color: #6bcb9b !important;
 }
 .router-link-active::after {
   content: '';
@@ -113,11 +115,11 @@ body {
   left: 0;
   width: 100%;
   height: 2px;
-  background: #00aeef;
+  background: #6bcb9b;
 }
 /* --- フッターのデザイン --- */
 .global-footer {
-  background: #446; /* 濃い紺色で引き締める */
+  background: #000000; /* フッターは完全に黒くして、ヘッダーと差別化 */
   color: white;
   padding: 60px 0 30px;
   margin-top: 100px; /* 前のコンテンツとの間隔 */
@@ -139,7 +141,7 @@ body {
   letter-spacing: 0.05em;
 }
 .footer-logo span {
-  color: #00aeef;
+  color: #6bcb9b;
 }
 
 .social-links {
@@ -160,13 +162,13 @@ body {
   font-weight: 900;
   font-size: 14px;
   transition: all 0.3s;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(192, 192, 192, 0.63);
 }
 
-/* ホバー時に水色に光らせる */
+/* ホバー時にに光らせる */
 .social-btn:hover {
-  background: #00aeef;
-  border-color: #00aeef;
+  background: #6bcb9b;
+  border-color: #6bcb9b;
   transform: translateY(-5px);
   box-shadow: 0 5px 20px rgba(0, 174, 239, 0.4);
 }

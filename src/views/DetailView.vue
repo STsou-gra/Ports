@@ -154,7 +154,7 @@ watch(renderedContent, highlightCode)
 .markdown-body h3 {
   margin: 1.5em 0 0.5em;
   padding-bottom: 0.3em;
-  border-bottom: 2px solid #00aeef;
+  border-bottom: 2px solid #6bcb9b;
 }
 
 .markdown-body ul {
@@ -166,6 +166,7 @@ watch(renderedContent, highlightCode)
 .detail-page {
   padding-top: 60px;
   min-height: 100vh;
+  background-color: #eee;
 }
 .section-inner {
   max-width: 900px;
@@ -175,7 +176,7 @@ watch(renderedContent, highlightCode)
 .back-btn {
   background: none;
   border: none;
-  color: #00aeef;
+  color: #6bcb9b;
   font-weight: 900;
   cursor: pointer;
   margin-bottom: 30px;
@@ -185,7 +186,7 @@ watch(renderedContent, highlightCode)
   margin-bottom: 40px;
 }
 .detail-category {
-  background: #00aeef;
+  background: #6bcb9b;
   color: white;
   padding: 4px 12px;
   border-radius: 4px;
@@ -196,7 +197,7 @@ watch(renderedContent, highlightCode)
   font-size: clamp(28px, 5vw, 42px);
   font-weight: 900;
   margin: 20px 0 10px;
-  color: #446;
+  color: rgb(42, 42, 42);
   line-height: 1.2;
 }
 .detail-date {
@@ -266,7 +267,7 @@ watch(renderedContent, highlightCode)
   color: white;
 }
 .link-btn.site {
-  background: #00aeef;
+  background: #6bcb9b;
   color: white;
 }
 .link-btn:hover {
@@ -277,7 +278,7 @@ watch(renderedContent, highlightCode)
 .image-gallery h3 {
   font-size: 24px;
   margin-bottom: 25px;
-  border-left: 5px solid #00aeef;
+  border-left: 5px solid #6bcb9b;
   padding-left: 15px;
   font-weight: 900;
 }

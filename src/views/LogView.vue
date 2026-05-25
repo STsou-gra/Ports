@@ -63,7 +63,7 @@ const displayLog = computed(() => {
   transition: 0.2s;
 }
 .log-item-card:hover {
-  border-bottom-color: #00aeef;
+  border-bottom-color: #6bcb9b;
   transform: translateY(-3px);
 }
 
@@ -72,8 +72,17 @@ const displayLog = computed(() => {
   justify-content: space-between;
   margin-bottom: 10px;
 }
+
+.log-item-meta p {
+  color: #000000;
+}
+
+.log-item-meta h4 {
+  color: #000000;
+}
+
 .log-id {
-  color: #00aeef;
+  color: #6bcb9b;
   font-weight: 900;
   font-size: 12px;
 }
@@ -92,6 +101,7 @@ const displayLog = computed(() => {
 .log-item-card h4 {
   margin: 8px 0;
   font-size: 16px;
+  color: #446;
 }
 .log-item-card p {
   font-size: 13px;
@@ -100,6 +110,7 @@ const displayLog = computed(() => {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  color: #446;
 }
 
 .pagination {

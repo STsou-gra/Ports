@@ -117,13 +117,13 @@ const simpleProfile =
 
 /* --- ABOUT --- */
 .about-card-simple {
-  background: white;
+  background: black;
   padding: 30px 40px;
   border-radius: 20px;
   position: relative;
   z-index: 1;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-  border-left: 8px solid #00aeef;
+  border-left: 8px solid #6bcb9b;
 }
 .simple-text {
   font-size: 16px;
@@ -142,7 +142,7 @@ const simpleProfile =
   transition: 0.3s;
 }
 .more-btn:hover {
-  background: #00aeef;
+  background: #6bcb9b;
   transform: translateX(5px);
 }
 
@@ -155,7 +155,7 @@ const simpleProfile =
   z-index: 1;
 }
 .work-card {
-  background: white;
+  background: black;
   border-radius: 12px;
   overflow: hidden;
   transition:
@@ -181,7 +181,7 @@ const simpleProfile =
 }
 .work-tech {
   font-size: 10px;
-  background: #00aeef;
+  background: #6bcb9b;
   color: white;
   padding: 2px 8px;
   border-radius: 4px;
@@ -243,7 +243,7 @@ const simpleProfile =
   font-size: 14px;
 }
 .log-tag {
-  background: #00aeef;
+  background: #6bcb9b;
   color: white;
   font-size: 10px;
   padding: 1px 6px;
@@ -263,7 +263,7 @@ const simpleProfile =
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #b3fffd 0%, #fde5f5 100%);
+  background: linear-gradient(135deg, #000000 0%, #4a6047 100%);
   clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
   margin-top: -65px;
 }
@@ -274,7 +274,7 @@ const simpleProfile =
   margin: 0;
 }
 .hero-logo span {
-  color: #00aeef;
+  color: #6bcb9b;
 }
 .hero-catch {
   font-weight: 700;
@@ -328,14 +328,14 @@ const simpleProfile =
   font-size: 11px;
   letter-spacing: 0.1em;
   /* 本物の画像を入れる場合はここを background-image にします */
-  background: linear-gradient(45deg, #446 0%, #557 100%);
+  background: linear-gradient(45deg, rgb(28, 34, 31) 50%, rgb(85, 119, 86) 100%);
 }
 
 /* ★ ホバー時の演出：少し浮き上がって、光が走る */
 .mini-banner:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 174, 239, 0.3);
-  border-color: #00aeef;
+  border-color: #6bcb9b;
 }
 
 .banner-hover-effect {
