@@ -129,7 +129,7 @@ watch(renderedContent, highlightCode)
 
 <style>
 .markdown-body {
-  color: #446;
+  color: var(--color-ink);
   line-height: 1.8;
 }
 
@@ -138,13 +138,13 @@ watch(renderedContent, highlightCode)
   margin: 1.5em 0;
   padding: 1em;
   border-radius: 12px;
-  background: #2d2d2d !important; /* 明示的に暗くする */
+  background: var(--color-code-bg) !important; /* 明示的に暗くする */
   overflow-x: auto;
 }
 
 /* インラインコード */
 .markdown-body :not(pre) > code {
-  background: #eee;
+  background: var(--color-light);
   padding: 2px 5px;
   border-radius: 4px;
   font-family: monospace;
@@ -154,7 +154,7 @@ watch(renderedContent, highlightCode)
 .markdown-body h3 {
   margin: 1.5em 0 0.5em;
   padding-bottom: 0.3em;
-  border-bottom: 2px solid #6bcb9b;
+  border-bottom: 2px solid var(--color-accent);
 }
 
 .markdown-body ul {
@@ -166,7 +166,7 @@ watch(renderedContent, highlightCode)
 .detail-page {
   padding-top: 60px;
   min-height: 100vh;
-  background-color: #eee;
+  background-color: var(--color-light);
 }
 .section-inner {
   max-width: 900px;
@@ -176,7 +176,7 @@ watch(renderedContent, highlightCode)
 .back-btn {
   background: none;
   border: none;
-  color: #6bcb9b;
+  color: var(--color-accent);
   font-weight: 900;
   cursor: pointer;
   margin-bottom: 30px;
@@ -186,7 +186,7 @@ watch(renderedContent, highlightCode)
   margin-bottom: 40px;
 }
 .detail-category {
-  background: #6bcb9b;
+  background: var(--color-accent);
   color: white;
   padding: 4px 12px;
   border-radius: 4px;
@@ -197,11 +197,11 @@ watch(renderedContent, highlightCode)
   font-size: clamp(28px, 5vw, 42px);
   font-weight: 900;
   margin: 20px 0 10px;
-  color: rgb(42, 42, 42);
+  color: var(--color-heading-dark);
   line-height: 1.2;
 }
 .detail-date {
-  color: #889;
+  color: var(--color-muted);
   font-weight: 700;
   font-family: 'Montserrat', sans-serif;
 }
@@ -212,7 +212,7 @@ watch(renderedContent, highlightCode)
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  background: #eee;
+  background: var(--color-light);
 }
 .video-container {
   position: relative;
@@ -233,7 +233,7 @@ watch(renderedContent, highlightCode)
   align-items: center;
   justify-content: center;
   font-weight: 900;
-  color: #bbb;
+  color: var(--color-placeholder-text);
 }
 .visual-placeholder img {
   width: 100%;
@@ -246,7 +246,7 @@ watch(renderedContent, highlightCode)
   line-height: 1.8;
   white-space: pre-wrap;
   margin-bottom: 40px;
-  color: #446;
+  color: var(--color-ink);
 }
 
 .external-links {
@@ -263,11 +263,11 @@ watch(renderedContent, highlightCode)
   transition: 0.3s;
 }
 .link-btn.github {
-  background: #333;
+  background: var(--color-github);
   color: white;
 }
 .link-btn.site {
-  background: #6bcb9b;
+  background: var(--color-accent);
   color: white;
 }
 .link-btn:hover {
@@ -278,7 +278,7 @@ watch(renderedContent, highlightCode)
 .image-gallery h3 {
   font-size: 24px;
   margin-bottom: 25px;
-  border-left: 5px solid #6bcb9b;
+  border-left: 5px solid var(--color-accent);
   padding-left: 15px;
   font-weight: 900;
 }
@@ -290,7 +290,7 @@ watch(renderedContent, highlightCode)
 .img-box {
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: #ddd;
+  background: var(--color-placeholder-bg);
   border-radius: 12px;
   overflow: hidden;
 }

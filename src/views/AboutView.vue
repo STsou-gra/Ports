@@ -91,13 +91,13 @@ onMounted(() => {
   top: 100px;
   font-size: 80px;
   font-weight: 900;
-  color: rgba(220, 220, 220, 0.48);
+  color: var(--color-section-title);
   position: absolute;
   z-index: 0;
 }
 
 .main-root {
-  background: #303b35;
+  background: var(--color-deep);
   padding: 50px;
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
@@ -121,7 +121,7 @@ onMounted(() => {
   top: -20px;
   bottom: 180px;
   width: 6px;
-  background: #303b35;
+  background: var(--color-deep);
   transform: translateX(-50%) scaleY(0);
   transform-origin: top;
   transition: transform 1.2s ease-out;
@@ -170,8 +170,8 @@ onMounted(() => {
 
 /* 幹からカードへの接続を滑らかに（右側） */
 .tree-item.right .branch-line {
-  border-bottom: 4px solid #303b35;
-  border-left: 4px solid #303b35;
+  border-bottom: 4px solid var(--color-deep);
+  border-left: 4px solid var(--color-deep);
   border-bottom-left-radius: 25px;
   margin-left: -3px; /* 幹の中心に合わせる */
   margin-top: -30px; /* 曲線の位置上げ */
@@ -180,8 +180,8 @@ onMounted(() => {
 
 /* 幹からカードへの接続を滑らかに（左側） */
 .tree-item.left .branch-line {
-  border-bottom: 4px solid #303b35;
-  border-right: 4px solid #303b35;
+  border-bottom: 4px solid var(--color-deep);
+  border-right: 4px solid var(--color-deep);
   border-bottom-right-radius: 25px;
   margin-right: -3px;
   margin-top: -30px;
@@ -194,7 +194,7 @@ onMounted(() => {
   position: absolute;
   width: 14px;
   height: 14px;
-  background: #303b35;
+  background: var(--color-deep);
   border-radius: 50%;
   top: -4px; /* 線の始点に合わせる */
   display: none; /* これで点が消えます */
@@ -214,12 +214,12 @@ onMounted(() => {
 
 /* カードのフェードイン */
 .history-blue-card {
-  background: #6bcb9b;
+  background: var(--color-accent);
   color: white;
   padding: 20px 30px;
   border-radius: 20px;
   width: 350px;
-  box-shadow: 0 10px 25px rgba(0, 174, 239, 0.3);
+  box-shadow: 0 10px 25px rgba(var(--color-accent-rgb), 0.3);
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease-out;
@@ -241,12 +241,12 @@ onMounted(() => {
 
 .birth-card {
   background: white;
-  border: 4px solid #6bcb9b;
-  color: #446;
+  border: 4px solid var(--color-accent);
+  color: var(--color-ink);
   padding: 25px 50px;
   border-radius: 50px;
   text-align: center;
-  box-shadow: 0 15px 30px rgba(0, 174, 239, 0.15);
+  box-shadow: 0 15px 30px rgba(var(--color-accent-rgb), 0.15);
   opacity: 0;
   transition: all 0.8s ease-out;
   transition-delay: 1s;
