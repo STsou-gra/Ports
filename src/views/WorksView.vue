@@ -69,7 +69,7 @@ import { sortedWorks } from '@/data/works'
 /* 作品記事カードのサムネイル */
 .work-thumb-large {
   height: 300px;
-  background: #cbd5e1;
+  background: var(--color-thumb-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,7 +92,7 @@ import { sortedWorks } from '@/data/works'
 }
 /* 技術タグ */
 .work-tech-tag {
-  background: #6bcb9b;
+  background: var(--color-accent);
   color: white;
   padding: 4px 12px;
   border-radius: 4px;

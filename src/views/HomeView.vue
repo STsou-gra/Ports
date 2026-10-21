@@ -123,7 +123,7 @@ const simpleProfile =
   position: relative;
   z-index: 1;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-  border-left: 8px solid #6bcb9b;
+  border-left: 8px solid var(--color-accent);
 }
 .simple-text {
   font-size: 16px;
@@ -133,7 +133,7 @@ const simpleProfile =
 .more-btn {
   display: inline-block;
   padding: 10px 30px;
-  background: #446;
+  background: var(--color-ink);
   color: white;
   text-decoration: none;
   font-weight: 900;
@@ -142,7 +142,7 @@ const simpleProfile =
   transition: 0.3s;
 }
 .more-btn:hover {
-  background: #6bcb9b;
+  background: var(--color-accent);
   transform: translateX(5px);
 }
 
@@ -165,23 +165,23 @@ const simpleProfile =
 }
 .work-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 174, 239, 0.1);
+  box-shadow: 0 20px 40px rgba(var(--color-accent-rgb), 0.1);
 }
 .work-thumb {
   height: 160px;
-  background: #ddd;
+  background: var(--color-placeholder-bg);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 900;
-  color: #bbb;
+  color: var(--color-placeholder-text);
 }
 .work-info {
   padding: 20px;
 }
 .work-tech {
   font-size: 10px;
-  background: #6bcb9b;
+  background: var(--color-accent);
   color: white;
   padding: 2px 8px;
   border-radius: 4px;
@@ -202,15 +202,15 @@ const simpleProfile =
 .outline-btn {
   display: inline-block;
   padding: 12px 40px;
-  border: 2px solid #446;
-  color: #446;
+  border: 2px solid var(--color-ink);
+  color: var(--color-ink);
   text-decoration: none;
   font-weight: 900;
   border-radius: 4px;
   transition: 0.3s;
 }
 .outline-btn:hover {
-  background: #446;
+  background: var(--color-ink);
   color: white;
 }
 
@@ -223,13 +223,13 @@ const simpleProfile =
   z-index: 1;
 }
 .log-log-item {
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--color-log-bg);
   padding: 15px 25px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   gap: 5px;
-  border: 1px solid rgba(0, 174, 239, 0.1);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.1);
 }
 .log-meta {
   display: flex;
@@ -239,11 +239,11 @@ const simpleProfile =
 .log-date {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-  color: #889;
+  color: var(--color-muted);
   font-size: 14px;
 }
 .log-tag {
-  background: #6bcb9b;
+  background: var(--color-accent);
   color: white;
   font-size: 10px;
   padding: 1px 6px;
@@ -253,7 +253,7 @@ const simpleProfile =
 .log-content {
   margin: 0;
   font-weight: 700;
-  color: #446;
+  color: var(--color-ink);
   font-size: 14px;
 }
 
@@ -263,7 +263,7 @@ const simpleProfile =
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #000000 0%, #4a6047 100%);
+  background: linear-gradient(135deg, #000000 0%, var(--color-ink) 100%);
   clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
   margin-top: -65px;
 }
@@ -274,7 +274,7 @@ const simpleProfile =
   margin: 0;
 }
 .hero-logo span {
-  color: #6bcb9b;
+  color: var(--color-accent);
 }
 .hero-catch {
   font-weight: 700;
@@ -308,7 +308,7 @@ const simpleProfile =
   display: block;
   position: relative;
   aspect-ratio: 240 / 80; /* ゲームサイトによくある横長バナーの比率 */
-  background: #446;
+  background: var(--color-ink);
   border-radius: 6px;
   overflow: hidden;
   text-decoration: none;
@@ -328,14 +328,14 @@ const simpleProfile =
   font-size: 11px;
   letter-spacing: 0.1em;
   /* 本物の画像を入れる場合はここを background-image にします */
-  background: linear-gradient(45deg, rgb(28, 34, 31) 50%, rgb(85, 119, 86) 100%);
+  background: linear-gradient(45deg, var(--color-banner-from) 50%, var(--color-banner-to) 100%);
 }
 
 /* ★ ホバー時の演出：少し浮き上がって、光が走る */
 .mini-banner:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 174, 239, 0.3);
-  border-color: #6bcb9b;
+  box-shadow: 0 10px 20px rgba(var(--color-accent-rgb), 0.3);
+  border-color: var(--color-accent);
 }
 
 .banner-hover-effect {
