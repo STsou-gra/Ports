@@ -59,11 +59,11 @@ const displayLog = computed(() => {
   background: white;
   padding: 20px;
   border-radius: 8px;
-  border-bottom: 4px solid #eee;
+  border-bottom: 4px solid var(--color-light);
   transition: 0.2s;
 }
 .log-item-card:hover {
-  border-bottom-color: #6bcb9b;
+  border-bottom-color: var(--color-accent);
   transform: translateY(-3px);
 }
 
@@ -82,26 +82,26 @@ const displayLog = computed(() => {
 }
 
 .log-id {
-  color: #6bcb9b;
+  color: var(--color-accent);
   font-weight: 900;
   font-size: 12px;
 }
 .log-tag {
   font-size: 10px;
-  background: #446;
+  background: var(--color-ink);
   color: white;
   padding: 2px 6px;
   border-radius: 3px;
 }
 .log-date {
   font-size: 12px;
-  color: #889;
+  color: var(--color-muted);
   font-weight: 700;
 }
 .log-item-card h4 {
   margin: 8px 0;
   font-size: 16px;
-  color: #446;
+  color: var(--color-ink);
 }
 .log-item-card p {
   font-size: 13px;
@@ -110,7 +110,7 @@ const displayLog = computed(() => {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  color: #446;
+  color: var(--color-ink);
 }
 
 .pagination {
@@ -121,7 +121,7 @@ const displayLog = computed(() => {
   gap: 20px;
 }
 .pagination button {
-  background: #446;
+  background: var(--color-ink);
   color: white;
   border: none;
   padding: 8px 20px;

@@ -2,6 +2,11 @@
 
 ポートフォリオサイト。
 
+## 制作について
+
+デザインはゲームの公式サイトを参考に、生成AI（Gemini）で土台を作り、自分で改修しています。
+画像・ロゴ・文章などの素材は、参考にしたサイトのものを使用していません。
+
 ## 以下、使用ツール・使用方法など
 
 This template should help get you started developing with Vue 3 in Vite.

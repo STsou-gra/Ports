@@ -41,12 +41,44 @@ import { RouterLink, RouterView } from 'vue-router'
 /* 1. フォント読み込み（1回書けばOK） */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Noto+Sans+JP:wght@400;700&display=swap');
 
+/* 色の設定（サイトの色はここで一括管理。各ページでは var(--color-xxx) で使う） */
+:root {
+  /* メインの色 */
+  --color-accent: #6bcb9b; /* アクセントの緑（ロゴの点・タグ・ボタンなど） */
+  --color-accent-rgb: 107, 203, 155; /* ↑と同じ色（影などの半透明用） */
+  --color-ink: #4a6047; /* 濃い緑（明るい背景の文字・ボタン・ヒーローのグラデーション） */
+  --color-deep: #303b35; /* さらに濃い緑（ABOUTのカード・木の幹） */
+
+  /* 背景と文字 */
+  --color-bg: #272727; /* サイト全体の背景 */
+  --color-text: #f0f4f8; /* サイト全体の文字 */
+  --color-muted: #889; /* 日付などの控えめな文字 */
+  --color-heading-dark: rgb(42, 42, 42); /* 記事詳細のタイトル */
+  --color-light: #eee; /* 記事詳細の背景など */
+  --color-logo: #b6b6b6; /* ヘッダーのロゴ */
+  --color-section-title: rgba(220, 220, 220, 0.48); /* 背景の大きな英字見出し */
+  --color-header-bg: rgba(255, 255, 255, 0.8); /* ヘッダーの背景 */
+  --color-log-bg: rgba(255, 255, 255, 0.7); /* トップのLOG一覧の背景 */
+  --color-social-bg: rgba(192, 192, 192, 0.63); /* フッターのSNSボタン */
+
+  /* 画像がないときの仮表示 */
+  --color-placeholder-bg: #ddd;
+  --color-placeholder-text: #bbb;
+  --color-thumb-bg: #cbd5e1; /* WORKS一覧のサムネイル */
+
+  /* その他 */
+  --color-banner-from: rgb(28, 34, 31); /* LINKSバナーのグラデーション（始点） */
+  --color-banner-to: rgb(85, 119, 86); /* LINKSバナーのグラデーション（終点） */
+  --color-code-bg: #2d2d2d; /* コードブロックの背景 */
+  --color-github: #333; /* GitHubボタン */
+}
+
 /* 2. サイト全体の共通ルール（scopedを外すと、全ページに届く） */
 body {
   margin: 0;
   font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
-  color: #f0f4f8;
-  background: #272727;
+  color: var(--color-text);
+  background: var(--color-bg);
 }
 
 /* 3. 各ページで使い回す「セクション」のデザイン */
@@ -58,13 +90,13 @@ body {
 .section-title-en {
   font-size: 80px;
   font-weight: 900;
-  color: rgba(220, 220, 220, 0.48);
+  color: var(--color-section-title);
   position: absolute;
   margin-top: -60px;
   z-index: 0;
 }
 .section-title-en span {
-  color: #6bcb9b;
+  color: var(--color-accent);
   opacity: 0.5;
 }
 
@@ -73,9 +105,9 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--color-header-bg);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 174, 239, 0.1);
+  border-bottom: 1px solid rgba(var(--color-accent-rgb), 0.1);
 }
 .header-inner {
   max-width: 1200px;
@@ -90,10 +122,10 @@ body {
 .logo {
   font-size: 24px;
   font-weight: 900;
-  color: #b6b6b6;
+  color: var(--color-logo);
 }
 .logo span {
-  color: #6bcb9b;
+  color: var(--color-accent);
 }
 .nav-links {
   display: flex;
@@ -101,12 +133,12 @@ body {
 }
 .nav-btn {
   text-decoration: none;
-  color: #446;
+  color: var(--color-ink);
   font-weight: 700;
   position: relative;
 }
 .router-link-active {
-  color: #6bcb9b !important;
+  color: var(--color-accent) !important;
 }
 .router-link-active::after {
   content: '';
@@ -115,7 +147,7 @@ body {
   left: 0;
   width: 100%;
   height: 2px;
-  background: #6bcb9b;
+  background: var(--color-accent);
 }
 /* --- フッターのデザイン --- */
 .global-footer {
@@ -141,7 +173,7 @@ body {
   letter-spacing: 0.05em;
 }
 .footer-logo span {
-  color: #6bcb9b;
+  color: var(--color-accent);
 }
 
 .social-links {
@@ -162,15 +194,15 @@ body {
   font-weight: 900;
   font-size: 14px;
   transition: all 0.3s;
-  background: rgba(192, 192, 192, 0.63);
+  background: var(--color-social-bg);
 }
 
 /* ホバー時にに光らせる */
 .social-btn:hover {
-  background: #6bcb9b;
-  border-color: #6bcb9b;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
   transform: translateY(-5px);
-  box-shadow: 0 5px 20px rgba(0, 174, 239, 0.4);
+  box-shadow: 0 5px 20px rgba(var(--color-accent-rgb), 0.4);
 }
 
 .copyright {
